@@ -12,8 +12,11 @@ export default function Home() {
         <Banner username={username} setUsername={setUsername} />
       ) : (
         <div className="h-full w-full flex flex-col justify-center items-center">
+          <div className="text-3xl animate-fade-up animate-once font-extrabold text-white text-opacity-50 text-center w-full mb-4">
+            Welcome to Github App
+          </div>
           <Empty />
-          <div className="text-sm text-white text-opacity-50 text-center w-full mt-4">
+          <div className="text-sm text-white animate-fade-up animate-once animate-delay-[1s] text-opacity-50 text-center w-full mt-4">
             Enter a Github Profile Link to get started
           </div>
         </div>

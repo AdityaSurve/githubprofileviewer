@@ -32,7 +32,7 @@ const FollowList = ({ data, label, setShow, setUsername }) => {
   }, [followlistbox]);
 
   return (
-    <div className="fixed h-screen w-screen text-white bg-black bg-opacity-20 backdrop-blur-sm top-0 left-0 flex justify-center items-center">
+    <div className="fixed h-screen z-50 w-screen text-white bg-black bg-opacity-20 backdrop-blur-sm top-0 left-0 flex justify-center items-center">
       <div
         className="h-72 rounded-md overflow-hidden border-[1.5px] flex flex-col justify-center items-center border-white border-opacity-20 w-96 bg-gray-700"
         ref={followlistbox}

@@ -2,7 +2,7 @@ import React from "react";
 
 const Empty = () => {
   return (
-    <>
+    <div className="animate-fade-up animate-once animate-delay-[1s]">
       <svg
         width="413"
         height="255"
@@ -53,7 +53,7 @@ const Empty = () => {
           fill="#2B2A7F"
         />
       </svg>
-    </>
+    </div>
   );
 };
 

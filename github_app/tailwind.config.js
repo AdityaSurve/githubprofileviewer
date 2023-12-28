@@ -15,7 +15,23 @@ module.exports = {
       fontFamily: {
         pops: ["Poppins", "sans-serif"],
       },
+      animation: {
+        expand: "expand 3s ease-in-out",
+        expandHorizontal: "expandHorizontal 1s ease-in-out",
+      },
+      keyframes: {
+        expand: {
+          "0%": { height: "0" },
+          "66%": { height: "0" },
+          "100%": { height: "4rem" },
+        },
+        expandHorizontal: {
+          "0%": { width: "0" },
+          "66%": { width: "0" },
+          "100%": { width: "24rem" },
+        },
+      },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animated")],
 };

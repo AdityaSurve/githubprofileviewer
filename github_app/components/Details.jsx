@@ -49,7 +49,7 @@ const Details = ({ data }) => {
 
   return (
     <div className="h-full w-full flex flex-col p-5 justify-center overflow-y-auto items-center">
-      <div className="w-full h-12 flex justify-between items-center">
+      <div className="w-full h-12 animate-fade-up animate-delay-[1.25s] animate-once flex justify-between items-center">
         <div className="font-bold w-full flex items-center gap-2">
           Top{" "}
           <div className="text-white h-5 w-5 rounded-full text-xs flex justify-center items-center bg-white bg-opacity-30 px-3 py-1">
@@ -87,7 +87,7 @@ const Details = ({ data }) => {
       </div>
 
       {filteredData.length > 0 ? (
-        <div className="grid grid-cols-2 gap-3 mt-4 overflow-y-auto overflow-hidden w-full h-full">
+        <div className="grid grid-cols-2 gap-3 animate-fade-up animate-delay-[1.5s] animate-once mt-4 overflow-y-auto overflow-hidden w-full h-full">
           {filteredData.map((repo, index) => (
             <div
               className="flex flex-col h-32 w-full rounded-md border-[1px] border-white border-opacity-30 p-3 justify-center items-center gap-2"
@@ -122,7 +122,9 @@ const Details = ({ data }) => {
           ))}
         </div>
       ) : (
-        <div className="text-[#818A93] mt-4">No repositories found.</div>
+        <div className="text-[#818A93] mt-4 animate-fade-up animate-delay-[1.5s]">
+          No repositories found.
+        </div>
       )}
     </div>
   );
