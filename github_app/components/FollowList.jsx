@@ -1,10 +1,42 @@
-import React from "react";
-import { CloseOutlined } from "@ant-design/icons";
+import React, { useEffect, useRef } from "react";
 
 const FollowList = ({ data, label, setShow, setUsername }) => {
+  const handleEscape = (event) => {
+    if (event.keyCode === 27) {
+      setShow(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleEscape, false);
+    return () => {
+      document.removeEventListener("keydown", handleEscape, false);
+    };
+  }, []);
+
+  const followlistbox = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        followlistbox.current &&
+        !followlistbox.current.contains(event.target)
+      ) {
+        setShow(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [followlistbox]);
+
   return (
     <div className="fixed h-screen w-screen text-white bg-black bg-opacity-20 backdrop-blur-sm top-0 left-0 flex justify-center items-center">
-      <div className="h-72 rounded-md overflow-hidden border-[1.5px] flex flex-col justify-center items-center border-white border-opacity-20 w-96 bg-gray-700">
+      <div
+        className="h-72 rounded-md overflow-hidden border-[1.5px] flex flex-col justify-center items-center border-white border-opacity-20 w-96 bg-gray-700"
+        ref={followlistbox}
+      >
         <div className="flex justify-between items-center w-full h-16 px-5">
           <div className="text-sm font-semibold">{label}</div>
           <div
@@ -13,7 +45,16 @@ const FollowList = ({ data, label, setShow, setUsername }) => {
               setShow(false);
             }}
           >
-            <CloseOutlined />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              className="bi bi-x"
+              viewBox="0 0 16 16"
+            >
+              <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+            </svg>
           </div>
         </div>
         <div className="h-full w-full bg-gray-800 overflow-y-auto">
